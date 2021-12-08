@@ -26,7 +26,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
-    vsVersion: '15.0'
+    vsVersion: '17.0'
     createLogFile: true
 
 - task: PublishBuildArtifacts@1
