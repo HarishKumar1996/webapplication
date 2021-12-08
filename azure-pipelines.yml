@@ -1,5 +1,6 @@
 # ASP.NET
 
+
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
@@ -27,3 +28,10 @@ steps:
     solution: '**\*.sln'
     vsVersion: '15.0'
     createLogFile: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'FilePath'
+    TargetPath: 'https://github.com/HarishKumar1996/webapplication/blob/main/WebApplication1/WebApplication2/bin'
