@@ -24,7 +24,7 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:OutputPath = "$(Build.BinariesDirectory)\$(Build.BuildID)"'
+    msbuildArgs: '/p:OutputPath="$(Build.BinariesDirectory)\$(Build.BuildID)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
