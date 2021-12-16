@@ -20,12 +20,12 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-- task: DotNetCoreCLI@2
+- task: VSBuild@1
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-
+    solution: '**\*.sln'
+    configuration: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    clean: true
+    restoreNugetPackages: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
