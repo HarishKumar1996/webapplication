@@ -20,9 +20,9 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-- task: VSBuild@1
+- task: MSBuild@1
   inputs:
-    solution: '**\*.sln'
+    solution: '**/*.sln'
     configuration: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     clean: true
     restoreNugetPackages: true
